@@ -16,5 +16,9 @@
 
 #define CLASSIFY_URL @"http://mobile.iliangcang.com/goods/goodsCategory?a=b&app_key=iPhone&v=3.0.0&sig=D1A042C4-40B2-43A7-A1AD-8AD9EEE8BB04"
 
+#define CLSSIFY_DETAIL_URL @"http://mobile.iliangcang.com/goods/goodsShare?a=b&page=%d&count=10&cat_code=%@&coverId=1&app_key=iPhone&v=3.0.0&sig=D1A042C4-40B2-43A7-A1AD-8AD9EEE8BB04"
+
 
 #endif /* StoreMacro_h */
+//http://mobile.iliangcang.com/goods/goodsShare?a=b&page=1&count=10&cat_code=00450046&coverId=1&app_key=iPhone&v=3.0.0&sig=D1A042C4-40B2-43A7-A1AD-8AD9EEE8BB04
+//http://mobile.iliangcang.com/goods/goodsShare?a=b&page=1&count=10&cat_code=00450047&coverId=1&app_key=iPhone&v=3.0.0&sig=D1A042C4-40B2-43A7-A1AD-8AD9EEE8BB04

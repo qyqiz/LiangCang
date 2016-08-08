@@ -7,6 +7,7 @@
 //
 
 #import "ClassifyListViewController.h"
+#import "ClassifyViewController.h"
 #import "ClassifyDetailCollectionViewCell.h"
 #import "HttpRequest.h"
 #import "StoreMacro.h"
@@ -23,6 +24,8 @@
 
 @property (nonatomic, assign) BOOL flag;
 
+@property (nonatomic, assign) int page;
+
 @end
 
 @implementation ClassifyListViewController
@@ -33,7 +36,7 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.view.backgroundColor = [UIColor redColor];
     [self initData];
-    [self loadData];
+//    [self loadData];
     [self createCollectionView];
     [self createTableView];
 }
@@ -47,14 +50,17 @@
     _dataArray = [[NSMutableArray alloc]initWithCapacity:0];
     _priceFilter = @[@"全部",@"0-200",@"201-500",@"501-1000",@"1001-3000",@"3000以上"];
     _flag = YES;
+    _page = 1;
 }
 
 #pragma mark - Load Data
-- (void)loadData {
-    [HttpRequest get:@"" parameter:nil returnBlock:^(NSData *data, NSError *error) {
-        
-    }];
-}
+//- (void)loadData {
+//    // TODO: URL 少写一个参数code
+//    NSString *urlStr = [NSString stringWithFormat:CLSSIFY_DETAIL_URL,self.page];
+//    [HttpRequest get:urlStr parameter:nil returnBlock:^(NSData *data, NSError *error) {
+//        
+//    }];
+//}
 
 #pragma mark - Create UI
 - (void)createTableView {

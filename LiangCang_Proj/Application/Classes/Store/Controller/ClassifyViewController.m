@@ -19,10 +19,10 @@
 
 @property (nonatomic, strong) UITableView *tableView;
 
+@property (nonatomic, strong) NSMutableArray *dataArray;
+
 // TableView header images.
 @property (nonatomic, strong) NSMutableArray *coverImgDataArr;
-
-@property (nonatomic, strong) NSMutableArray *dataArray;
 
 // TableView header close and open.
 @property (nonatomic, strong) NSMutableArray *flags;
@@ -64,11 +64,13 @@
             for (NSDictionary *itemDict in dict[@"data"][@"items"]) {
                 ItemsModel *itemModel = [[ItemsModel alloc]init];
                 itemModel.cover_img = itemDict[@"cover_img"];
+                itemModel.cat_id = itemDict[@"cat_id"];
                 [_coverImgDataArr addObject:itemModel];
                 NSMutableArray *rowArray = [[NSMutableArray alloc]initWithCapacity:0];
                 for (NSDictionary *itemSecondDict in itemDict[@"second"][0]) {
                     ItemsModel *itemSecondModel = [[ItemsModel alloc]init];
                     itemSecondModel.cat_name = itemSecondDict[@"cat_name"];
+                    itemSecondModel.cat_id = itemSecondDict[@"cat_id"];
                     [rowArray addObject:itemSecondModel];
                 }
                 
@@ -143,6 +145,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    // TODO: URL 正向传值
+    int cat = [[_dataArray[indexPath.section] cat_id] intValue];
+    int secondCat = [[_dataArray[indexPath.section][indexPath.row] cat_id] intValue];
+    NSString *catid = [NSString stringWithFormat:@"%04d%04d",cat,secondCat];
+    NSLog(@"%@",catid);
     ClassifyListViewController *detailView = [[ClassifyListViewController alloc]init];
     [self.navigationController pushViewController:detailView animated:YES];
 }
