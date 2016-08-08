@@ -3,20 +3,88 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ClassifyDetailCollectionViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="250" height="284"/>
+            <rect key="frame" x="0.0" y="0.0" width="242" height="345"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="250" height="284"/>
+                <rect key="frame" x="0.0" y="0.0" width="242" height="345"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MDz-XR-Nnj">
+                        <rect key="frame" x="8" y="8" width="226" height="257"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="MDz-XR-Nnj" secondAttribute="height" multiplier="226:257" id="e4d-I4-8Vi"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我比那时更爱你 无理取闹 亲自抱枕 优雅的背影" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ube-aZ-oo8">
+                        <rect key="frame" x="15" y="273" width="212" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gelei Story 格蕾的故事艺术爆品意见哈哈哈哈" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wEh-wT-uKv">
+                        <rect key="frame" x="15" y="295" width="212" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥439.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hix-pe-c6j">
+                        <rect key="frame" x="15" y="317" width="56" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.21440638980000001" green="0.81457775649999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="56" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ad5-iY-OYE">
+                        <rect key="frame" x="210" y="318" width="17" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.21440638980000001" green="0.81457775649999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="关注_蓝心~iphone.png" translatesAutoresizingMaskIntoConstraints="NO" id="WbG-Ej-jxw">
+                        <rect key="frame" x="189" y="319" width="14" height="14"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="14" id="CR7-nS-Y1I"/>
+                            <constraint firstAttribute="width" secondItem="WbG-Ej-jxw" secondAttribute="height" multiplier="1:1" id="LoJ-0b-M2c"/>
+                            <constraint firstAttribute="width" constant="14" id="bLQ-Zh-P3C"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <color key="backgroundColor" red="0.086274509803921567" green="0.094117647058823528" blue="0.098039215686274508" alpha="1" colorSpace="calibratedRGB"/>
-            <size key="customSize" width="250" height="284"/>
-            <point key="canvasLocation" x="446" y="340"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="MDz-XR-Nnj" secondAttribute="trailing" constant="8" id="1rx-lU-ovq"/>
+                <constraint firstAttribute="trailing" secondItem="ad5-iY-OYE" secondAttribute="trailing" constant="15" id="Ala-qm-ctP"/>
+                <constraint firstAttribute="trailing" secondItem="wEh-wT-uKv" secondAttribute="trailing" constant="15" id="BcA-wO-cd8"/>
+                <constraint firstAttribute="bottom" secondItem="ad5-iY-OYE" secondAttribute="bottom" constant="11" id="NKf-Cz-Xax"/>
+                <constraint firstItem="ad5-iY-OYE" firstAttribute="leading" secondItem="WbG-Ej-jxw" secondAttribute="trailing" constant="7" id="PL9-hX-NQT"/>
+                <constraint firstItem="hix-pe-c6j" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="15" id="PhX-ro-JcZ"/>
+                <constraint firstItem="wEh-wT-uKv" firstAttribute="top" secondItem="ube-aZ-oo8" secondAttribute="bottom" constant="5" id="RNQ-v8-gFu"/>
+                <constraint firstAttribute="trailing" secondItem="ube-aZ-oo8" secondAttribute="trailing" constant="15" id="TjR-sM-l64"/>
+                <constraint firstItem="ube-aZ-oo8" firstAttribute="top" secondItem="MDz-XR-Nnj" secondAttribute="bottom" constant="8" id="WYf-RJ-rDs"/>
+                <constraint firstItem="MDz-XR-Nnj" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="eL4-XF-Rbb"/>
+                <constraint firstAttribute="bottom" secondItem="hix-pe-c6j" secondAttribute="bottom" constant="11" id="fgJ-J9-idG"/>
+                <constraint firstItem="ube-aZ-oo8" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="15" id="q5r-AW-yh8"/>
+                <constraint firstAttribute="bottom" secondItem="WbG-Ej-jxw" secondAttribute="bottom" constant="12" id="rF7-Dj-N0Z"/>
+                <constraint firstItem="MDz-XR-Nnj" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="wXn-ZZ-hvV"/>
+                <constraint firstItem="wEh-wT-uKv" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="15" id="xZg-S4-pVD"/>
+            </constraints>
+            <size key="customSize" width="242" height="345"/>
+            <connections>
+                <outlet property="detailLabel" destination="wEh-wT-uKv" id="qWb-UJ-BsL"/>
+                <outlet property="likeLabel" destination="ad5-iY-OYE" id="tUf-ZE-WGH"/>
+                <outlet property="mainImage" destination="MDz-XR-Nnj" id="bpV-Cw-bvM"/>
+                <outlet property="priceLabel" destination="hix-pe-c6j" id="9kX-wE-0zd"/>
+                <outlet property="titleLabel" destination="ube-aZ-oo8" id="XQE-ir-qEs"/>
+            </connections>
+            <point key="canvasLocation" x="739" y="397.5"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="关注_蓝心~iphone.png" width="8" height="7"/>
+    </resources>
 </document>

@@ -8,6 +8,7 @@
 
 #import "ClassifyViewController.h"
 #import "StoreClassifyTableViewCell.h"
+#import "ClassifyListViewController.h"
 #import "StoreMacro.h"
 #import "HttpRequest.h"
 #import "ClassifyModel.h"
@@ -70,9 +71,8 @@
                     itemSecondModel.cat_name = itemSecondDict[@"cat_name"];
                     [rowArray addObject:itemSecondModel];
                 }
-                /**
-                 *  _flags array is the TableView (close & open) flag.
-                 */
+                
+                //_flags array is the TableView (close & open) flag.
                 [_flags addObject:@NO];
                 [_dataArray addObject:rowArray];
             }
@@ -141,12 +141,18 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    ClassifyListViewController *detailView = [[ClassifyListViewController alloc]init];
+    [self.navigationController pushViewController:detailView animated:YES];
+}
+
 #pragma mark - Tools
 - (UIButton *)createButton
 {
     UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, WIDTH, CELL_HEIGHT)];
     button.backgroundColor = [UIColor clearColor];
-    [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside          ];
+    [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
     return button;
 }
 
@@ -165,9 +171,8 @@
     [_flags removeObjectAtIndex:index];
     [_flags insertObject:@(flag) atIndex:index];
     
-    /**
-     *  Reload the section with animation.
-     */
+    
+    // Reload the section with animation.
     NSIndexSet *indexSet = [[NSIndexSet alloc]initWithIndex:index];
     [_tableView reloadSections:indexSet withRowAnimation:NO];
 }

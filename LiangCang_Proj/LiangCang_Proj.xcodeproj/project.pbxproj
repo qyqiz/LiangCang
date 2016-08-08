@@ -487,6 +487,7 @@
 		BCB51E981D4B80DB00E54C98 /* IndividualViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCB51E971D4B80DB00E54C98 /* IndividualViewController.m */; };
 		BCB51E9A1D4B8DB600E54C98 /* Log in Resources */ = {isa = PBXBuildFile; fileRef = BCB51E991D4B8DB600E54C98 /* Log */; };
 		BCB8B79E1D50823C004C2221 /* HttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BCB8B79D1D50823C004C2221 /* HttpRequest.m */; };
+		BCF9677C1D5861E3005B5F82 /* ClassifyListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9677B1D5861E3005B5F82 /* ClassifyListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -996,6 +997,8 @@
 		BCB51E991D4B8DB600E54C98 /* Log */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Log; path = ../Log; sourceTree = "<group>"; };
 		BCB8B79C1D50823C004C2221 /* HttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpRequest.h; sourceTree = "<group>"; };
 		BCB8B79D1D50823C004C2221 /* HttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpRequest.m; sourceTree = "<group>"; };
+		BCF9677A1D5861E3005B5F82 /* ClassifyListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassifyListViewController.h; sourceTree = "<group>"; };
+		BCF9677B1D5861E3005B5F82 /* ClassifyListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassifyListViewController.m; sourceTree = "<group>"; };
 		DD6B26D9404926EA00BD262B /* Pods-LiangCang_Proj.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiangCang_Proj.release.xcconfig"; path = "Pods/Target Support Files/Pods-LiangCang_Proj/Pods-LiangCang_Proj.release.xcconfig"; sourceTree = "<group>"; };
 		DD7E3F4A0F2CEF560ABEC105 /* libPods-LiangCang_Proj.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LiangCang_Proj.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -1068,6 +1071,7 @@
 			children = (
 				BC510B011D4F3530000E3546 /* ClassifyViewController.h */,
 				BC510B021D4F3530000E3546 /* ClassifyViewController.m */,
+				BCF967791D586199005B5F82 /* ClassifyViewControllers */,
 				BC3C1CCC1D5486C90033BD46 /* BrandViewController.h */,
 				BC3C1CCD1D5486C90033BD46 /* BrandViewController.m */,
 				BC3C1CCF1D5486E00033BD46 /* HomeViewController.h */,
@@ -1847,6 +1851,15 @@
 			path = pic;
 			sourceTree = "<group>";
 		};
+		BCF967791D586199005B5F82 /* ClassifyViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				BCF9677A1D5861E3005B5F82 /* ClassifyListViewController.h */,
+				BCF9677B1D5861E3005B5F82 /* ClassifyListViewController.m */,
+			);
+			name = ClassifyViewControllers;
+			sourceTree = "<group>";
+		};
 		F8FAB58B3EDACCD95A7A7571 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -2447,6 +2460,7 @@
 				BCB8B79E1D50823C004C2221 /* HttpRequest.m in Sources */,
 				BCB51E8F1D4B809500E54C98 /* StoreViewController.m in Sources */,
 				BCB51E8C1D4B806D00E54C98 /* MagazineViewController.m in Sources */,
+				BCF9677C1D5861E3005B5F82 /* ClassifyListViewController.m in Sources */,
 				BCB51AD21D4B7C7200E54C98 /* AppDelegate.m in Sources */,
 				BCB51E921D4B80BB00E54C98 /* ExpertViewController.m in Sources */,
 				BC3C1CD41D5486EC0033BD46 /* TopicViewController.m in Sources */,
