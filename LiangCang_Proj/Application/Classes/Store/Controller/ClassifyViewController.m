@@ -149,7 +149,6 @@
     int secondCat = [[_dataArray[indexPath.section][indexPath.row] cat_id] intValue];
     ClassifyListViewController *vc = [[ClassifyListViewController alloc]init];
     vc.catid = [NSString stringWithFormat:@"%04d%04d",cat,secondCat];
-    NSLog(@"%@",vc.catid);
     [self.navigationController pushViewController:vc animated:YES];
 }
 

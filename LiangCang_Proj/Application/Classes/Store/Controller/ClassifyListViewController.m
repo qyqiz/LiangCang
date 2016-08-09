@@ -63,7 +63,6 @@
             for (NSDictionary *itemModel in dict[@"data"][@"items"]) {
                 DetailItemModel *model = [[DetailItemModel alloc]initWithDictionary:itemModel error:nil];
                 [_dataArray addObject:model];
-//                NSLog(@"%@",_dataArray);
             }
             [_collectionView reloadData];
         } else {
@@ -95,7 +94,7 @@
     layout.minimumInteritemSpacing = 0;
     
     // Create CollectionView
-    _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, TABBAR_HEIGHT + 16 + _tableView.frame.size.height, WIDTH, HEIGHT - TABBAR_HEIGHT + 16 + _tableView.frame.size.height) collectionViewLayout:layout];
+    _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, TABBAR_HEIGHT + 50 + _tableView.frame.size.height, WIDTH, HEIGHT - 2 * TABBAR_HEIGHT - 50 - _tableView.frame.size.height) collectionViewLayout:layout];
     _collectionView.delegate = self;
     _collectionView.dataSource = self;
     [self.view addSubview:_collectionView];
