@@ -41,7 +41,7 @@
     [self loadData];
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didRecieveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
@@ -145,13 +145,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    // TODO: URL 正向传值
-    int cat = [[_dataArray[indexPath.section] cat_id] intValue];
+    int cat = [[_coverImgDataArr[indexPath.section] cat_id] intValue];
     int secondCat = [[_dataArray[indexPath.section][indexPath.row] cat_id] intValue];
-    NSString *catid = [NSString stringWithFormat:@"%04d%04d",cat,secondCat];
-    NSLog(@"%@",catid);
-    ClassifyListViewController *detailView = [[ClassifyListViewController alloc]init];
-    [self.navigationController pushViewController:detailView animated:YES];
+    ClassifyListViewController *vc = [[ClassifyListViewController alloc]init];
+    vc.catid = [NSString stringWithFormat:@"%04d%04d",cat,secondCat];
+    NSLog(@"%@",vc.catid);
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - Tools
@@ -178,11 +177,9 @@
     [_flags removeObjectAtIndex:index];
     [_flags insertObject:@(flag) atIndex:index];
     
-    
     // Reload the section with animation.
     NSIndexSet *indexSet = [[NSIndexSet alloc]initWithIndex:index];
     [_tableView reloadSections:indexSet withRowAnimation:NO];
 }
-
 
 @end

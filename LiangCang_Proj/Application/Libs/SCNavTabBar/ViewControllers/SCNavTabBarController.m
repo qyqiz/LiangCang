@@ -99,7 +99,6 @@
 - (void)viewInit
 {
     // Load NavTabBar and content view to show on window
-    // TODO: 改变TabBar的高度
     _navTabBar = [[SCNavTabBar alloc] initWithFrame:CGRectMake(DOT_COORDINATE, DOT_COORDINATE, SCREEN_WIDTH, NAV_TAB_BAR_HEIGHT-7) showArrowButton:_showArrowButton];
     _navTabBar.delegate = self;
     _navTabBar.backgroundColor = [UIColor blackColor];

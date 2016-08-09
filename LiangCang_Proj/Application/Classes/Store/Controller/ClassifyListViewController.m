@@ -7,8 +7,8 @@
 //
 
 #import "ClassifyListViewController.h"
-#import "ClassifyViewController.h"
 #import "ClassifyDetailCollectionViewCell.h"
+#import "ClassifyDetailModel.h"
 #import "HttpRequest.h"
 #import "StoreMacro.h"
 
@@ -36,7 +36,7 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.view.backgroundColor = [UIColor redColor];
     [self initData];
-//    [self loadData];
+    [self loadData];
     [self createCollectionView];
     [self createTableView];
 }
@@ -54,13 +54,24 @@
 }
 
 #pragma mark - Load Data
-//- (void)loadData {
-//    // TODO: URL 少写一个参数code
-//    NSString *urlStr = [NSString stringWithFormat:CLSSIFY_DETAIL_URL,self.page];
-//    [HttpRequest get:urlStr parameter:nil returnBlock:^(NSData *data, NSError *error) {
-//        
-//    }];
-//}
+- (void)loadData {
+    NSString *urlStr = [NSString stringWithFormat:CLSSIFY_DETAIL_URL,self.page,_catid];
+    [HttpRequest get:urlStr parameter:nil returnBlock:^(NSData *data, NSError *error) {
+        if (!error) {
+            // Data analysis
+            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+            for (NSDictionary *itemModel in dict[@"data"][@"items"]) {
+                DetailItemModel *model = [[DetailItemModel alloc]initWithDictionary:itemModel error:nil];
+                [_dataArray addObject:model];
+//                NSLog(@"%@",_dataArray);
+            }
+            [_collectionView reloadData];
+        } else {
+            // Print the error description.
+            NSLog(@"%@",error.localizedDescription);
+        }
+    }];
+}
 
 #pragma mark - Create UI
 - (void)createTableView {
@@ -94,12 +105,12 @@
 
 #pragma mark - CollectionView Delegate
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 50;
+    return _dataArray.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ClassifyDetailCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ClassifyDetailCollectionViewCell" forIndexPath:indexPath];
-    
+    [cell sendDataToModel:_dataArray[indexPath.item]];
     return cell;
 }
 
@@ -137,16 +148,12 @@
     label.textColor = [UIColor darkGrayColor];
     [view addSubview:label];
     
-//    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 27, 15)];
-//    button.center = CGPointMake(WIDTH - 30, label.center.y);
-//    [button setImage:[UIImage imageNamed:@"选择价格向下箭头~iphone"] forState:UIControlStateNormal];
-//    [view addSubview:button];
     UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 27, 15)];
     imageView.center = CGPointMake(WIDTH - 30, label.center.y);
     imageView.image = [UIImage imageNamed:@"选择价格向下箭头~iphone"];
     [view addSubview:imageView];
     
-    UIButton *buttonClick = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, WIDTH - 100, PRICE_HEADER_HEIGHT)];
+    UIButton *buttonClick = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, WIDTH, PRICE_HEADER_HEIGHT)];
     buttonClick.backgroundColor = [UIColor clearColor];
     [buttonClick addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
     [view addSubview:buttonClick];

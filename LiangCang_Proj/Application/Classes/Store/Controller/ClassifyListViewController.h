@@ -10,4 +10,6 @@
 
 @interface ClassifyListViewController : UIViewController
 
+@property (nonatomic, copy) NSString *catid;
+
 @end

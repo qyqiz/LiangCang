@@ -77,7 +77,6 @@
 - (void)showLineWithButtonWidth:(CGFloat)width
 {
     _line = [[UIView alloc] initWithFrame:CGRectMake(2.0f, NAV_TAB_BAR_HEIGHT - 3.0f - 7.0f, width - 4.0f, 3.0f)];
-    // TODO: 改变按钮线的颜色
 //    _line.backgroundColor = UIColorWithRGBA(20.0f, 80.0f, 200.0f, 0.7f);
     _line.backgroundColor = [UIColor whiteColor];
     [_navgationTabBar addSubview:_line];

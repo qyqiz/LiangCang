@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ClassifyDetailModel.h"
 
 @interface ClassifyDetailCollectionViewCell : UICollectionViewCell
 
@@ -15,5 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *detailLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *likeLabel;
+
+- (void)sendDataToModel:(DetailItemModel *)model;
 
 @end
