@@ -23,6 +23,10 @@
 		BC5842D01D5319D700BA318E /* ClassifyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5842CF1D5319D700BA318E /* ClassifyModel.m */; };
 		BC601C371D507BE400AC9913 /* StoreClassifyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC601C351D507BE400AC9913 /* StoreClassifyTableViewCell.m */; };
 		BC601C381D507BE400AC9913 /* StoreClassifyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC601C361D507BE400AC9913 /* StoreClassifyTableViewCell.xib */; };
+		BCA029101D5B090D004763EF /* ClassifyInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA0290E1D5B090D004763EF /* ClassifyInfoViewController.m */; };
+		BCA029171D5B193D004763EF /* ClassifyInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA029161D5B193D004763EF /* ClassifyInfoModel.m */; };
+		BCA0291B1D5B1DB4004763EF /* ClassifyInfoScrollTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA029191D5B1DB4004763EF /* ClassifyInfoScrollTableViewCell.m */; };
+		BCA0291C1D5B1DB4004763EF /* ClassifyInfoScrollTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCA0291A1D5B1DB4004763EF /* ClassifyInfoScrollTableViewCell.xib */; };
 		BCB51ACF1D4B7C7200E54C98 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BCB51ACE1D4B7C7200E54C98 /* main.m */; };
 		BCB51AD21D4B7C7200E54C98 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BCB51AD11D4B7C7200E54C98 /* AppDelegate.m */; };
 		BCB51AD51D4B7C7200E54C98 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCB51AD41D4B7C7200E54C98 /* ViewController.m */; };
@@ -522,6 +526,13 @@
 		BC601C341D507BE400AC9913 /* StoreClassifyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreClassifyTableViewCell.h; sourceTree = "<group>"; };
 		BC601C351D507BE400AC9913 /* StoreClassifyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreClassifyTableViewCell.m; sourceTree = "<group>"; };
 		BC601C361D507BE400AC9913 /* StoreClassifyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoreClassifyTableViewCell.xib; sourceTree = "<group>"; };
+		BCA0290D1D5B090D004763EF /* ClassifyInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassifyInfoViewController.h; sourceTree = "<group>"; };
+		BCA0290E1D5B090D004763EF /* ClassifyInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassifyInfoViewController.m; sourceTree = "<group>"; };
+		BCA029151D5B193D004763EF /* ClassifyInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassifyInfoModel.h; sourceTree = "<group>"; };
+		BCA029161D5B193D004763EF /* ClassifyInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassifyInfoModel.m; sourceTree = "<group>"; };
+		BCA029181D5B1DB4004763EF /* ClassifyInfoScrollTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassifyInfoScrollTableViewCell.h; sourceTree = "<group>"; };
+		BCA029191D5B1DB4004763EF /* ClassifyInfoScrollTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassifyInfoScrollTableViewCell.m; sourceTree = "<group>"; };
+		BCA0291A1D5B1DB4004763EF /* ClassifyInfoScrollTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassifyInfoScrollTableViewCell.xib; sourceTree = "<group>"; };
 		BCB51ACA1D4B7C7200E54C98 /* LiangCang_Proj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LiangCang_Proj.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCB51ACE1D4B7C7200E54C98 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BCB51AD01D4B7C7200E54C98 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1031,6 +1042,8 @@
 				BC5842CF1D5319D700BA318E /* ClassifyModel.m */,
 				BC3C1CD81D548E6C0033BD46 /* ClassifyDetailModel.h */,
 				BC3C1CD91D548E6C0033BD46 /* ClassifyDetailModel.m */,
+				BCA029151D5B193D004763EF /* ClassifyInfoModel.h */,
+				BCA029161D5B193D004763EF /* ClassifyInfoModel.m */,
 			);
 			name = ClassifyModels;
 			sourceTree = "<group>";
@@ -1082,6 +1095,16 @@
 				BC3C1CD61D5486F90033BD46 /* GiftViewController.m */,
 			);
 			name = TabBarControllers;
+			sourceTree = "<group>";
+		};
+		BCA029121D5B0F97004763EF /* ClassifyInfoCells */ = {
+			isa = PBXGroup;
+			children = (
+				BCA029181D5B1DB4004763EF /* ClassifyInfoScrollTableViewCell.h */,
+				BCA029191D5B1DB4004763EF /* ClassifyInfoScrollTableViewCell.m */,
+				BCA0291A1D5B1DB4004763EF /* ClassifyInfoScrollTableViewCell.xib */,
+			);
+			name = ClassifyInfoCells;
 			sourceTree = "<group>";
 		};
 		BCB51AC11D4B7C7200E54C98 = {
@@ -1356,6 +1379,7 @@
 				BC3C1CDC1D5498890033BD46 /* ClassifyDetailCollectionViewCell.h */,
 				BC3C1CDD1D5498890033BD46 /* ClassifyDetailCollectionViewCell.m */,
 				BC3C1CDE1D5498890033BD46 /* ClassifyDetailCollectionViewCell.xib */,
+				BCA029121D5B0F97004763EF /* ClassifyInfoCells */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1856,6 +1880,8 @@
 			children = (
 				BCF9677A1D5861E3005B5F82 /* ClassifyListViewController.h */,
 				BCF9677B1D5861E3005B5F82 /* ClassifyListViewController.m */,
+				BCA0290D1D5B090D004763EF /* ClassifyInfoViewController.h */,
+				BCA0290E1D5B090D004763EF /* ClassifyInfoViewController.m */,
 			);
 			name = ClassifyViewControllers;
 			sourceTree = "<group>";
@@ -2272,6 +2298,7 @@
 				BCB51D761D4B7ECA00E54C98 /* 取消菜单-图标~iphone.png in Resources */,
 				BCB51D581D4B7ECA00E54C98 /* 关注选中~iphone.png in Resources */,
 				BCB51E851D4B7ECA00E54C98 /* 返回按钮.png in Resources */,
+				BCA0291C1D5B1DB4004763EF /* ClassifyInfoScrollTableViewCell.xib in Resources */,
 				BCB51DE51D4B7ECA00E54C98 /* 朋友~iphone@3x.png in Resources */,
 				BCB51E421D4B7ECA00E54C98 /* 输入按钮~iphone.png in Resources */,
 				BCB51D931D4B7ECA00E54C98 /* 商店看看~iphone.png in Resources */,
@@ -2443,9 +2470,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCA029101D5B090D004763EF /* ClassifyInfoViewController.m in Sources */,
 				BC3C1CD71D5486F90033BD46 /* GiftViewController.m in Sources */,
 				BC510B031D4F3530000E3546 /* ClassifyViewController.m in Sources */,
 				BC3C1CCE1D5486C90033BD46 /* BrandViewController.m in Sources */,
+				BCA0291B1D5B1DB4004763EF /* ClassifyInfoScrollTableViewCell.m in Sources */,
 				BC3C1CD11D5486E00033BD46 /* HomeViewController.m in Sources */,
 				BC601C371D507BE400AC9913 /* StoreClassifyTableViewCell.m in Sources */,
 				BC3C1CDA1D548E6C0033BD46 /* ClassifyDetailModel.m in Sources */,
@@ -2455,6 +2484,7 @@
 				BCB51E891D4B805B00E54C98 /* BaseViewController.m in Sources */,
 				BC510AFD1D4F3134000E3546 /* SCNavTabBarController.m in Sources */,
 				BC5842D01D5319D700BA318E /* ClassifyModel.m in Sources */,
+				BCA029171D5B193D004763EF /* ClassifyInfoModel.m in Sources */,
 				BCB51E951D4B80CC00E54C98 /* ShareViewController.m in Sources */,
 				BC510AFF1D4F3134000E3546 /* SCPopView.m in Sources */,
 				BCB8B79E1D50823C004C2221 /* HttpRequest.m in Sources */,

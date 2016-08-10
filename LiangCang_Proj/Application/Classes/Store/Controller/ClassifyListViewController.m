@@ -9,6 +9,7 @@
 #import "ClassifyListViewController.h"
 #import "ClassifyDetailCollectionViewCell.h"
 #import "ClassifyDetailModel.h"
+#import "ClassifyInfoViewController.h"
 #import "HttpRequest.h"
 #import "StoreMacro.h"
 
@@ -55,7 +56,7 @@
 
 #pragma mark - Load Data
 - (void)loadData {
-    NSString *urlStr = [NSString stringWithFormat:CLSSIFY_DETAIL_URL,self.page,_catid];
+    NSString *urlStr = [NSString stringWithFormat:CLASSIFY_DETAIL_URL,self.page, _catid];
     [HttpRequest get:urlStr parameter:nil returnBlock:^(NSData *data, NSError *error) {
         if (!error) {
             // Data analysis
@@ -65,9 +66,16 @@
                 [_dataArray addObject:model];
             }
             [_collectionView reloadData];
+            // End refreshing.
+            [self.collectionView.mj_header endRefreshing];
+            [self.collectionView.mj_footer endRefreshing];
+            
         } else {
             // Print the error description.
             NSLog(@"%@",error.localizedDescription);
+            // End refreshing.
+            [self.collectionView.mj_header endRefreshing];
+            [self.collectionView.mj_footer endRefreshing];
         }
     }];
 }
@@ -100,6 +108,18 @@
     [self.view addSubview:_collectionView];
     
     [_collectionView registerNib:[UINib nibWithNibName:@"ClassifyDetailCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"ClassifyDetailCollectionViewCell"];
+    
+    // Push to refresh.
+    _collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        self.page = 1;
+        [self.dataArray removeAllObjects];
+        [self loadData];
+    }];
+    
+    _collectionView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        self.page++;
+        [self loadData];
+    }];
 }
 
 #pragma mark - CollectionView Delegate
@@ -111,6 +131,12 @@
     ClassifyDetailCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ClassifyDetailCollectionViewCell" forIndexPath:indexPath];
     [cell sendDataToModel:_dataArray[indexPath.item]];
     return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    ClassifyInfoViewController *vc = [[ClassifyInfoViewController alloc]init];
+    vc.goodId = [_dataArray[indexPath.item] goods_id];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - TableView Delegate
@@ -176,18 +202,4 @@
 }
 
 @end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
