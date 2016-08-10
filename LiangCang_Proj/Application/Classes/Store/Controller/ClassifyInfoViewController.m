@@ -7,7 +7,6 @@
 //
 
 #import "ClassifyInfoViewController.h"
-#import "ClassifyInfoScrollTableViewCell.h"
 #import "ClassifyInfoModel.h"
 #import "HttpRequest.h"
 #import "StoreMacro.h"
@@ -112,17 +111,6 @@
     NSString *str = [NSString stringWithFormat:@"¥%@",self.model.data.items.price];
     UILabel *priceLabel = [self createLabelWithFrame:CGRectMake(detailLabel.frame.origin.x, detailLabel.frame.origin.y + 60, 150, 16) andText:str andTextColor:[UIColor cyanColor]];
     [self.view addSubview:priceLabel];
-}
-
-#pragma mark - TableView Delegate
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _dataArray.count;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ClassifyInfoScrollTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ClassifyInfoScrollTableViewCell" forIndexPath:indexPath];
-    [cell sendDataToModel:_dataArray[indexPath.row]];
-    return cell;
 }
 
 #pragma mark - Tools
