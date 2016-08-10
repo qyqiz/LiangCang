@@ -23,15 +23,15 @@
 }
 
 - (void)sendDataToModel:(ClassifyInfoModel *)model {
-//    NSArray *imageArr = model.data.items.images_item;
-//    _scrollView.contentSize = CGSizeMake(WIDTH * imageArr.count, self.contentView.frame.size.height);
-//    for (int i = 0; i < imageArr.count; i++) {
-//        UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(i * WIDTH, 0, WIDTH, self.contentView.frame.size.height)];
-//        [imageView setImageWithURL:[NSURL URLWithString:imageArr[i]]];
-//        [_scrollView addSubview:imageView];
-//    }
-//    _scrollView.bounces = NO;
-//    _scrollView.pagingEnabled = YES;
+    NSArray *imageArr = model.data.items.images_item;
+    _scrollView.contentSize = CGSizeMake(WIDTH * imageArr.count, self.contentView.frame.size.height);
+    for (int i = 0; i < imageArr.count; i++) {
+        UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(i * WIDTH, 0, WIDTH, self.contentView.frame.size.height)];
+        [imageView setImageWithURL:[NSURL URLWithString:imageArr[i]]];
+        [_scrollView addSubview:imageView];
+    }
+    _scrollView.bounces = NO;
+    _scrollView.pagingEnabled = YES;
     
     _titleLabel.text = model.data.items.brand_info.brand_name;
     _detailLabel.text = model.data.items.goods_name;

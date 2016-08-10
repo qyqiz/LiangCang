@@ -12,11 +12,15 @@
 #import "HttpRequest.h"
 #import "StoreMacro.h"
 
+#import <UIKit+AFNetworking.h>
+
 @interface ClassifyInfoViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
 
 @property (nonatomic, strong) NSMutableArray *dataArray;
+
+@property (nonatomic, strong) ClassifyInfoModel *model;
 
 @end
 
@@ -28,7 +32,7 @@
     
     [self initData];
     [self loadData];
-    [self createUI];
+//    [self createUI];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,10 +52,8 @@
         if (!error) {
             // Data analysis
             NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-            ClassifyInfoModel *model = [[ClassifyInfoModel alloc]initWithDictionary:dict error:nil];
-            [_dataArray addObject:model];
-            NSLog(@"%@",model.data.items.images_item);
-            [_tableView reloadData];
+            self.model = [[ClassifyInfoModel alloc]initWithDictionary:dict error:nil];
+            [self createUI];
         } else {
             NSLog(@"%@", error.localizedDescription);
         }
@@ -60,13 +62,56 @@
 
 #pragma mark - Create UI
 - (void)createUI {
+    self.view.backgroundColor = [UIColor blackColor];
     self.automaticallyAdjustsScrollViewInsets = NO;
-    _tableView = [[UITableView alloc]initWithFrame:self.view.frame style:UITableViewStylePlain];
-    _tableView.delegate = self;
-    _tableView.dataSource = self;
-    [self.view addSubview:_tableView];
     
-    [_tableView registerNib:[UINib nibWithNibName:@"ClassifyInfoScrollTableViewCell" bundle:nil] forCellReuseIdentifier:@"ClassifyInfoScrollTableViewCell"];
+    // Create scrollView
+    UIScrollView *scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, WIDTH, 300)];
+    scrollView.backgroundColor = [UIColor blackColor];
+    [self.view addSubview:scrollView];
+    
+    NSArray *imageArr = self.model.data.items.images_item;
+    scrollView.contentSize = CGSizeMake(WIDTH * imageArr.count, 300);
+    for (int i = 0; i < imageArr.count; i++) {
+        UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(i * WIDTH, 0, WIDTH, 300)];
+        [imageView setImageWithURL:[NSURL URLWithString:imageArr[i]]];
+        [scrollView addSubview:imageView];
+    }
+    scrollView.bounces = NO;
+    scrollView.pagingEnabled = YES;
+    
+    // Create titleLabel
+    UILabel *titleLabel = [self createLabelWithFrame:CGRectMake(15, scrollView.frame.size.height + 15, 200, 17) andText:self.model.data.items.brand_info.brand_name andTextColor:[UIColor grayColor]];
+    [self.view addSubview:titleLabel];
+    
+    // Create detailLabel
+    UILabel *detailLabel = [self createLabelWithFrame:CGRectMake(15, titleLabel.frame.origin.y + 30, 200, 13) andText:self.model.data.items.goods_name andTextColor:[UIColor grayColor]];
+    detailLabel.font = [UIFont systemFontOfSize:13];
+    [self.view addSubview:detailLabel];
+    
+    // Create likeButton
+    UIButton *likeButton = [self createButtonWithFrame:CGRectMake(WIDTH - 30, titleLabel.frame.origin.y, 15, 15) andNormalImage:@"商品收藏未选~iphone" andSelectedImage:@"商品收藏选中~iphone"];
+    // TODO: likeButtonTarget
+    [self.view addSubview:likeButton];
+    
+    // Create likeCount
+    // ???: did not
+    UILabel *likeLabel = [self createLabelWithFrame:CGRectMake(0, 0, 30, 13) andText:self.model.data.items.like_count andTextColor:[UIColor grayColor]];
+    likeLabel.center = CGPointMake(likeButton.center.x, likeButton.center.y + 20);
+    likeLabel.text = self.model.data.items.like_count;
+    likeLabel.font = [UIFont systemFontOfSize:13];
+    likeLabel.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:likeLabel];
+    
+    // Create share button
+    UIButton *shareButton = [self createButtonWithFrame:CGRectMake(WIDTH - 30, likeButton.frame.origin.y + 45, 15, 15) andNormalImage:@"更多分享~iphone" andSelectedImage:nil];
+    // TODO: shareButtonTarget
+    [self.view addSubview:shareButton];
+    
+    // Create priceLabel
+    NSString *str = [NSString stringWithFormat:@"¥%@",self.model.data.items.price];
+    UILabel *priceLabel = [self createLabelWithFrame:CGRectMake(detailLabel.frame.origin.x, detailLabel.frame.origin.y + 60, 150, 16) andText:str andTextColor:[UIColor cyanColor]];
+    [self.view addSubview:priceLabel];
 }
 
 #pragma mark - TableView Delegate
@@ -80,4 +125,31 @@
     return cell;
 }
 
+#pragma mark - Tools
+- (UIButton *)createButtonWithFrame:(CGRect)frame andNormalImage:(NSString *)normalImage andSelectedImage:(NSString *)selectedImage {
+    UIButton *button = [[UIButton alloc]initWithFrame:frame];
+    [button setImage:[UIImage imageNamed:normalImage] forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:selectedImage] forState:UIControlStateHighlighted];
+    return button;
+}
+
+- (UILabel *)createLabelWithFrame:(CGRect)frame andText:(NSString *)text andTextColor:(UIColor *)color {
+    UILabel *label = [[UILabel alloc]initWithFrame:frame];
+    label.text = text;
+    label.textColor = color;
+    return label;
+}
+
 @end
+
+
+
+
+
+
+
+
+
+
+
+

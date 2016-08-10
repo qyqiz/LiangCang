@@ -530,7 +530,6 @@
 		BCA0290E1D5B090D004763EF /* ClassifyInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassifyInfoViewController.m; sourceTree = "<group>"; };
 		BCA029151D5B193D004763EF /* ClassifyInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassifyInfoModel.h; sourceTree = "<group>"; };
 		BCA029161D5B193D004763EF /* ClassifyInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassifyInfoModel.m; sourceTree = "<group>"; };
-		BCA029181D5B1DB4004763EF /* ClassifyInfoScrollTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassifyInfoScrollTableViewCell.h; sourceTree = "<group>"; };
 		BCA029191D5B1DB4004763EF /* ClassifyInfoScrollTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassifyInfoScrollTableViewCell.m; sourceTree = "<group>"; };
 		BCA0291A1D5B1DB4004763EF /* ClassifyInfoScrollTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassifyInfoScrollTableViewCell.xib; sourceTree = "<group>"; };
 		BCB51ACA1D4B7C7200E54C98 /* LiangCang_Proj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LiangCang_Proj.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1100,7 +1099,6 @@
 		BCA029121D5B0F97004763EF /* ClassifyInfoCells */ = {
 			isa = PBXGroup;
 			children = (
-				BCA029181D5B1DB4004763EF /* ClassifyInfoScrollTableViewCell.h */,
 				BCA029191D5B1DB4004763EF /* ClassifyInfoScrollTableViewCell.m */,
 				BCA0291A1D5B1DB4004763EF /* ClassifyInfoScrollTableViewCell.xib */,
 			);
